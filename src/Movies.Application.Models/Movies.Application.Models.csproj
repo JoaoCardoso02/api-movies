@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="User\" />
+    <None Remove="Microsoft.AspNetCore.Mvc" />
+    <None Remove="Microsoft.AspNet.Mvc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
+  </ItemGroup>
+</Project>
