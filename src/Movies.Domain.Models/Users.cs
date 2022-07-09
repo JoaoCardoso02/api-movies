@@ -9,4 +9,3 @@ public class Users {
     public string Password { get; set; }
     public DateOnly BirthDate { get; set; }
 }
-

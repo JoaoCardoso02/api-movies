@@ -31,7 +31,7 @@
     <ProjectReference Include="..\Movies.Application.Models\Movies.Application.Models.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="..\Movies.Application.Infrastructure.Data\Movies.Application.Infrastructure.Data.csproj">
+    <ProjectReference Include="..\Movies.Infrastructure.Data\Movies.Infrastructure.Data.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>

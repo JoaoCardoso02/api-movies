@@ -1,6 +1,5 @@
-﻿global using Movies.Application.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
-using MySQL.Data.EntityFrameworkCore;
+﻿global using Movies.Infrastructure.Data;
+global using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
