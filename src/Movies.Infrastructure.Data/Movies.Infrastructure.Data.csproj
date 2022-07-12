@@ -12,6 +12,8 @@
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
     <None Remove="Pomelo.EntityFrameworkCore.MySql.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="Microsoft.EntityFrameworkCore.UnitOfWork" />
+    <None Remove="EntityFramework.Repository" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
@@ -21,6 +23,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="EntityFramework.Repository" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Movies.Domain.Models\Movies.Domain.Models.csproj" />

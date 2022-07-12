@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Interfaces\" />
+    <None Remove="Microsoft.EntityFrameworkCore.UnitOfWork" />
+    <None Remove="EntityFrameworkCore.Data.UnitOfWork" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Movies.Domain.Models\Movies.Domain.Models.csproj" />
+    <ProjectReference Include="..\Movies.Infrastructure.Data\Movies.Infrastructure.Data.csproj" />
+  </ItemGroup>
+</Project>
