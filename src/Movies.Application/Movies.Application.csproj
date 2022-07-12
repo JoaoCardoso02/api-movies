@@ -12,4 +12,8 @@
   <ItemGroup>
     <Folder Include="Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Movies.Domain.Services\Movies.Domain.Services.csproj" />
+    <ProjectReference Include="..\Movies.Application.Models\Movies.Application.Models.csproj" />
+  </ItemGroup>
 </Project>
