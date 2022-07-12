@@ -34,5 +34,8 @@
     <ProjectReference Include="..\Movies.Infrastructure.Data\Movies.Infrastructure.Data.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\Movies.Application\Movies.Application.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

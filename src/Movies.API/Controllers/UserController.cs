@@ -2,6 +2,7 @@
 using System.Net.Mime;
 using Microsoft.AspNetCore.Mvc;
 using Movies.Application.Models.User;
+using Movies.Application.Services.Interfaces;
 
 namespace Movies.API.Controllers;
 
@@ -10,13 +11,16 @@ namespace Movies.API.Controllers;
 [Route("api/v1/[controller]")]
 public class UserController
 {
-    public UserController()
+    private readonly IUserAppService UserAppService;
+
+    public UserController(IUserAppService userAppService)
     {
+        UserAppService = userAppService;
     }
 
-    [HttpPost()]
+    [HttpGet()]
     [Consumes(MediaTypeNames.Application.Json)]
-    public CreateUserRequest CreateUser(CreateUserRequest createUserRequest) {
-        return createUserRequest;
+    public async Task<GetAllUserResult> GetAllUser() {
+        return await UserAppService.GetAll();
     }
 }
