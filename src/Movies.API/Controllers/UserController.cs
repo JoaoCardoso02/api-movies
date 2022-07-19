@@ -24,4 +24,11 @@ public class UserController
     public async Task<List<GetAllUserResult>> GetAllUser() {
         return await UserAppService.GetAll();
     }
+
+    [HttpPost()]
+    [Consumes(MediaTypeNames.Application.Json)]
+    public async Task<CreateUserResult> CreateUser(CreateUserRequest user) {
+        return await UserAppService.Create(user);
+    }
 }
+

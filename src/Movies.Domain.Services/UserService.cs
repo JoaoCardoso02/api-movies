@@ -20,5 +20,14 @@ public class UserService : IUserService
 
         return users;
     }
+
+    public async Task<Users> Create(Users user) {
+        var userRepository = Repository.Users;
+
+        userRepository.Add(user);
+        await Repository.SaveChangesAsync();
+
+        return user;
+    }
 }
 

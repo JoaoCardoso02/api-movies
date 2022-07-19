@@ -1,5 +1,6 @@
 ﻿using Movies.Domain.Services.Interfaces;
 using Movies.Domain.Services;
+using Movies.Domain.Models;
 using Movies.Application.Models.User;
 using Movies.Application.Services.Interfaces;
 
@@ -20,9 +21,32 @@ public class UserAppService : IUserAppService
         List<GetAllUserResult> result = new List<GetAllUserResult>();
 
         users.ForEach(user => {
-            result.Add(new GetAllUserResult(user.Id));
+            result.Add(new GetAllUserResult {
+                Id = (long)user.Id,
+                Name = user.Name,
+                Email = user.Email,
+                Password = user.Password,
+                BirthDate = user.BirthDate,
+            });
         });
 
         return result;
+    }
+
+    public async Task<CreateUserResult> Create(CreateUserRequest user) {
+        var userCreated = await _userService.Create(new Users(
+            user.Name,
+            user.Email,
+            user.Password,
+            user.BirthDate
+        ));
+
+        return new CreateUserResult {
+            Id = (long)userCreated.Id,
+            Name = userCreated.Name,
+            Email = userCreated.Email,
+            Password = userCreated.Password,
+            BirthDate = userCreated.BirthDate,
+        };
     }
 }
