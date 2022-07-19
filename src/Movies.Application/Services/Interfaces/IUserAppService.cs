@@ -4,5 +4,5 @@ namespace Movies.Application.Services.Interfaces;
 
 public interface IUserAppService
 {
-    Task<GetAllUserResult> GetAll();
+    Task<List<GetAllUserResult>> GetAll();
 }

@@ -1,15 +1,17 @@
 ﻿using Movies.Domain.Services.Interfaces;
+using Movies.Domain.Services;
 using Movies.Application.Models.User;
+using Movies.Application.Services.Interfaces;
 
 namespace Movies.Application.Services;
 
-public class UserAppService
+public class UserAppService : IUserAppService
 {
     private readonly IUserService _userService;
 
-    public UserAppService(IUserService UserService)
+    public UserAppService()
     {
-        _userService = UserService;
+        _userService = new UserService();
     }
 
     public async Task<List<GetAllUserResult>> GetAll() {

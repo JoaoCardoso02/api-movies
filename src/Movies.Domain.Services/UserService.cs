@@ -8,11 +8,9 @@ public class UserService : IUserService
 {
     private DataContext Repository { get; }
 
-    public UserService(
-        DataContext repository
-    )
+    public UserService()
     {
-        Repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        Repository = new DataContext();
     }
 
     public async Task<List<Users>> GetAll() {
