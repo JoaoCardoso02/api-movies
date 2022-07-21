@@ -37,5 +37,18 @@ public class UserController
     public async Task<CreateUserResult> CreateUser(CreateUserRequest user) {
         return await UserAppService.Create(user);
     }
+
+    [HttpPut("{id}")]
+    [Consumes(MediaTypeNames.Application.Json)]
+    public async Task<UpdateUserResult> UpdateUser(string id, UpdateUserRequest user) {
+        long.TryParse(id, out long idLong);
+        return await UserAppService.Update(idLong, user);
+    }
 }
 
+//{
+//  "name": "novo dado",
+//  "email": "atualizado",
+//  "password": "minha senha",
+//  "birthDate": "2022-07-21T23:14:41.760Z"
+//}

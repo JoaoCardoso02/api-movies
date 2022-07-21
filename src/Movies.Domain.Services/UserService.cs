@@ -51,15 +51,13 @@ public class UserService : IUserService
             throw new Exception("User does not find");
         }
 
-        var userUpdated = new Users {
-            Id = user.Id,
-            Name = userToEdit.Name ?? user.Name,
-            Email = userToEdit.Email ?? user.Email,
-            Password = userToEdit.Password ?? user.Password,
-            BirthDate = userToEdit.BirthDate == DateTime.MinValue ? user.BirthDate : userToEdit.BirthDate,
-        };
+        user.Id = user.Id;
+        user.Name = userToEdit.Name ?? user.Name;
+        user.Email = userToEdit.Email ?? user.Email;
+        user.Password = userToEdit.Password ?? user.Password;
+        user.BirthDate = userToEdit.BirthDate == DateTime.MinValue ? user.BirthDate : userToEdit.BirthDate;
 
-        userRepository.Update(userUpdated);
+        userRepository.Update(user);
         await Repository.SaveChangesAsync();
 
         return user;
