@@ -16,4 +16,6 @@ public class Users {
         Password = password;
         BirthDate = birthDate;
     }
+
+    public Users() {}
 }

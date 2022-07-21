@@ -27,7 +27,7 @@ public class UserService : IUserService
         var user = userRepository.Where(user => user.Id == id).SingleOrDefault();
 
         if (user == null) {
-            throw new Exception("User does not found");
+            throw new Exception("User does not find");
         }
 
         return user;
@@ -37,6 +37,29 @@ public class UserService : IUserService
         var userRepository = Repository.Users;
 
         userRepository.Add(user);
+        await Repository.SaveChangesAsync();
+
+        return user;
+    }
+
+    public async Task<Users> Update(long id, Users userToEdit) {
+        var userRepository = Repository.Users;
+
+        var user = userRepository.Where(user => user.Id == id).SingleOrDefault();
+
+        if (user == null) {
+            throw new Exception("User does not find");
+        }
+
+        var userUpdated = new Users {
+            Id = user.Id,
+            Name = userToEdit.Name ?? user.Name,
+            Email = userToEdit.Email ?? user.Email,
+            Password = userToEdit.Password ?? user.Password,
+            BirthDate = userToEdit.BirthDate == DateTime.MinValue ? user.BirthDate : userToEdit.BirthDate,
+        };
+
+        userRepository.Update(userUpdated);
         await Repository.SaveChangesAsync();
 
         return user;
