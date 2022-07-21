@@ -5,5 +5,6 @@ namespace Movies.Application.Services.Interfaces;
 public interface IUserAppService
 {
     Task<List<GetAllUserResult>> GetAll();
+    Task<GetOneUserResult> GetById(long id);
     Task<CreateUserResult> Create(CreateUserRequest user);
 }

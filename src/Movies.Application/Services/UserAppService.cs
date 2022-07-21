@@ -33,6 +33,23 @@ public class UserAppService : IUserAppService
         return result;
     }
 
+    public async Task<GetOneUserResult> GetById(long id) {
+        var user = await _userService.GetById(id);
+
+        if (user.Id == null) {
+            throw new Exception("User does not return Id");
+        }
+
+        return new GetOneUserResult {
+            Id = (long)user.Id,
+            Name = user.Name,
+            Email = user.Email,
+            Password = user.Password,
+            BirthDate = user.BirthDate,
+        };
+
+    }
+
     public async Task<CreateUserResult> Create(CreateUserRequest user) {
         var userCreated = await _userService.Create(new Users(
             user.Name,
@@ -40,6 +57,10 @@ public class UserAppService : IUserAppService
             user.Password,
             user.BirthDate
         ));
+
+        if (userCreated.Id == null) {
+            throw new Exception("User does not return Id");
+        }
 
         return new CreateUserResult {
             Id = (long)userCreated.Id,
