@@ -21,6 +21,18 @@ public class UserService : IUserService
         return users;
     }
 
+    public async Task<Users> GetById(long id) {
+        var userRepository = Repository.Users;
+
+        var user = userRepository.Where(user => user.Id == id).SingleOrDefault();
+
+        if (user == null) {
+            throw new Exception("User does not found");
+        }
+
+        return user;
+    }
+
     public async Task<Users> Create(Users user) {
         var userRepository = Repository.Users;
 
