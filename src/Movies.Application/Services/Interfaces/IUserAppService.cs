@@ -7,4 +7,5 @@ public interface IUserAppService
     Task<List<GetAllUserResult>> GetAll();
     Task<GetOneUserResult> GetById(long id);
     Task<CreateUserResult> Create(CreateUserRequest user);
+    Task<UpdateUserResult> Update(long id, UpdateUserRequest user);
 }

@@ -70,4 +70,25 @@ public class UserAppService : IUserAppService
             BirthDate = userCreated.BirthDate,
         };
     }
+
+    public async Task<UpdateUserResult> Update(long id, UpdateUserRequest user) {
+        var userCreated = await _userService.Update(id, new Users(
+            user.Name,
+            user.Email,
+            user.Password,
+            user.BirthDate
+        ));
+
+        if (userCreated.Id == null) {
+            throw new Exception("User does not return Id");
+        }
+
+        return new UpdateUserResult {
+            Id = (long)userCreated.Id,
+            Name = userCreated.Name,
+            Email = userCreated.Email,
+            Password = userCreated.Password,
+            BirthDate = userCreated.BirthDate,
+        };
+    }
 }
