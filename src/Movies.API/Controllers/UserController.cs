@@ -25,6 +25,13 @@ public class UserController
         return await UserAppService.GetAll();
     }
 
+    [HttpGet("{id}")]
+    [Consumes(MediaTypeNames.Application.Json)]
+    public async Task<GetOneUserResult> GetUserById(string id) {
+        long.TryParse(id, out long idLong);
+        return await UserAppService.GetById(idLong);
+    }
+
     [HttpPost()]
     [Consumes(MediaTypeNames.Application.Json)]
     public async Task<CreateUserResult> CreateUser(CreateUserRequest user) {
