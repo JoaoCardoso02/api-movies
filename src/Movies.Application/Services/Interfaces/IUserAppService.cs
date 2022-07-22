@@ -8,4 +8,5 @@ public interface IUserAppService
     Task<GetOneUserResult> GetById(long id);
     Task<CreateUserResult> Create(CreateUserRequest user);
     Task<UpdateUserResult> Update(long id, UpdateUserRequest user);
+    Task<bool> Delete(long id);
 }

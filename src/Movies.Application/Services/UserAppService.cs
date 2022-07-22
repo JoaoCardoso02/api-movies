@@ -91,4 +91,8 @@ public class UserAppService : IUserAppService
             BirthDate = userCreated.BirthDate,
         };
     }
+
+    public async Task<bool> Delete(long id) {
+        return await _userService.Delete(id);
+    }
 }
