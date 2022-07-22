@@ -10,12 +10,10 @@ namespace Movies.API.Controllers;
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v1/[controller]")]
-public class UserController
-{
+public class UserController {
     private readonly IUserAppService UserAppService;
 
-    public UserController()
-    {
+    public UserController() {
         UserAppService = new UserAppService();
     }
 
@@ -44,11 +42,11 @@ public class UserController
         long.TryParse(id, out long idLong);
         return await UserAppService.Update(idLong, user);
     }
-}
 
-//{
-//  "name": "novo dado",
-//  "email": "atualizado",
-//  "password": "minha senha",
-//  "birthDate": "2022-07-21T23:14:41.760Z"
-//}
+    [HttpDelete("{id}")]
+    [Consumes(MediaTypeNames.Application.Json)]
+    public async Task<bool> DeleteUser(string id) {
+        long.TryParse(id, out long idLong);
+        return await UserAppService.Delete(idLong);
+    }
+}
