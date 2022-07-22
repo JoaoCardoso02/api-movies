@@ -62,5 +62,24 @@ public class UserService : IUserService
 
         return user;
     }
+
+    public async Task<bool> Delete(long id) {
+        try {
+            var userRepository = Repository.Users;
+
+            var user = userRepository.Where(user => user.Id == id).SingleOrDefault();
+
+            if (user == null) {
+                throw new Exception("User does not find");
+            }
+
+            userRepository.Remove(user);
+            await Repository.SaveChangesAsync();
+
+            return true;
+        } catch {
+            return false;
+        }
+    }
 }
 
