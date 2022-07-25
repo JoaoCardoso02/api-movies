@@ -17,5 +17,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Movies.Domain.Models\Movies.Domain.Models.csproj" />
     <ProjectReference Include="..\Movies.Infrastructure.Data\Movies.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\Movies.Infrastructure.Cryptography\Movies.Infrastructure.Cryptography.csproj" />
   </ItemGroup>
 </Project>

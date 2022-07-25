@@ -1,18 +1,24 @@
 ﻿using Movies.Domain.Services.Interfaces;
-using Movies.Domain.Services;
 using Movies.Domain.Models;
-using Movies.Application.Models.User;
+
 using Movies.Application.Services.Interfaces;
+using Movies.Application.Models.User;
+
+using Movies.Infrastructure.Cryptography.Interfaces;
 
 namespace Movies.Application.Services;
 
 public class UserAppService : IUserAppService
 {
     private readonly IUserService UserService;
+    private readonly ICryptography Cryptography;
 
-    public UserAppService(IUserService userService)
-    {
+    public UserAppService(
+        IUserService userService,
+        ICryptography cryptography
+    ) {
         UserService = userService;
+        Cryptography = cryptography;
     }
 
     public async Task<List<GetAllUserResult>> GetAll() {
@@ -57,10 +63,12 @@ public class UserAppService : IUserAppService
             throw new Exception("E-mail already used");
         }
 
+        var passwordHash = Cryptography.HashPassword(user.Password);
+
         var userCreated = await UserService.Create(new Users(
             user.Name,
             user.Email,
-            user.Password,
+            passwordHash,
             user.BirthDate
         ));
 
