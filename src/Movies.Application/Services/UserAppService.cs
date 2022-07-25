@@ -51,6 +51,12 @@ public class UserAppService : IUserAppService
     }
 
     public async Task<CreateUserResult> Create(CreateUserRequest user) {
+        var emailAlreadyRegistered = await UserService.GetByEmail(user.Email) == null;
+
+        if (emailAlreadyRegistered) {
+            throw new Exception("E-mail already used");
+        }
+
         var userCreated = await UserService.Create(new Users(
             user.Name,
             user.Email,
