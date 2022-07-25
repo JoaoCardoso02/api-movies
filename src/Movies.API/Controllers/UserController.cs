@@ -3,7 +3,6 @@ using System.Net.Mime;
 using Microsoft.AspNetCore.Mvc;
 using Movies.Application.Models.User;
 using Movies.Application.Services.Interfaces;
-using Movies.Application.Services;
 
 namespace Movies.API.Controllers;
 
