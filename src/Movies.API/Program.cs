@@ -7,6 +7,9 @@ using Movies.Domain.Services;
 using Movies.Application.Services.Interfaces;
 using Movies.Application.Services;
 
+using Movies.Infrastructure.Cryptography.Interfaces;
+using Movies.Infrastructure.Cryptography;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -26,6 +29,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<DataContext, DataContext>();
+builder.Services.AddScoped<ICryptography, BcryptAdapter>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserAppService, UserAppService>();
 
