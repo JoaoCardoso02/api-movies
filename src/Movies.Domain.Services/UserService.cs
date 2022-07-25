@@ -26,7 +26,19 @@ public class UserService : IUserService
         var user = userRepository.Where(user => user.Id == id).SingleOrDefault();
 
         if (user == null) {
-            throw new Exception("User does not find");
+            throw new Exception("User not found");
+        }
+
+        return user;
+    }
+
+    public async Task<Users> GetByEmail(string email) {
+        var userRepository = Repository.Users;
+
+        var user = userRepository.Where(user => user.Email == email).SingleOrDefault();
+
+        if (user == null) {
+            throw new Exception("User not found");
         }
 
         return user;
@@ -47,7 +59,7 @@ public class UserService : IUserService
         var user = userRepository.Where(user => user.Id == id).SingleOrDefault();
 
         if (user == null) {
-            throw new Exception("User does not find");
+            throw new Exception("User not found");
         }
 
         user.Id = user.Id;
@@ -69,7 +81,7 @@ public class UserService : IUserService
             var user = userRepository.Where(user => user.Id == id).SingleOrDefault();
 
             if (user == null) {
-                throw new Exception("User does not find");
+                throw new Exception("User not found");
             }
 
             userRepository.Remove(user);
