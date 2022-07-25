@@ -8,15 +8,15 @@ namespace Movies.Application.Services;
 
 public class UserAppService : IUserAppService
 {
-    private readonly IUserService _userService;
+    private readonly IUserService UserService;
 
-    public UserAppService()
+    public UserAppService(IUserService userService)
     {
-        _userService = new UserService();
+        UserService = userService;
     }
 
     public async Task<List<GetAllUserResult>> GetAll() {
-        var users = await _userService.GetAll();
+        var users = await UserService.GetAll();
 
         List<GetAllUserResult> result = new List<GetAllUserResult>();
 
@@ -34,7 +34,7 @@ public class UserAppService : IUserAppService
     }
 
     public async Task<GetOneUserResult> GetById(long id) {
-        var user = await _userService.GetById(id);
+        var user = await UserService.GetById(id);
 
         if (user.Id == null) {
             throw new Exception("User does not return Id");
@@ -51,7 +51,7 @@ public class UserAppService : IUserAppService
     }
 
     public async Task<CreateUserResult> Create(CreateUserRequest user) {
-        var userCreated = await _userService.Create(new Users(
+        var userCreated = await UserService.Create(new Users(
             user.Name,
             user.Email,
             user.Password,
@@ -72,7 +72,7 @@ public class UserAppService : IUserAppService
     }
 
     public async Task<UpdateUserResult> Update(long id, UpdateUserRequest user) {
-        var userCreated = await _userService.Update(id, new Users(
+        var userCreated = await UserService.Update(id, new Users(
             user.Name,
             user.Email,
             user.Password,
@@ -93,6 +93,6 @@ public class UserAppService : IUserAppService
     }
 
     public async Task<bool> Delete(long id) {
-        return await _userService.Delete(id);
+        return await UserService.Delete(id);
     }
 }

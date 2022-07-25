@@ -1,6 +1,12 @@
 ﻿global using Movies.Infrastructure.Data;
 global using Microsoft.EntityFrameworkCore;
 
+using Movies.Domain.Services.Interfaces;
+using Movies.Domain.Services;
+
+using Movies.Application.Services.Interfaces;
+using Movies.Application.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -18,6 +24,10 @@ builder.Services.AddDbContext<DataContext>(options => {
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<DataContext, DataContext>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserAppService, UserAppService>();
 
 var app = builder.Build();
 

@@ -6,11 +6,10 @@ namespace Movies.Domain.Services;
 
 public class UserService : IUserService
 {
-    private DataContext Repository { get; }
+    private readonly DataContext Repository;
 
-    public UserService()
-    {
-        Repository = new DataContext();
+    public UserService(DataContext repository) {
+        Repository = repository;
     }
 
     public async Task<List<Users>> GetAll() {

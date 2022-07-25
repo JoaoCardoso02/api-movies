@@ -13,8 +13,8 @@ namespace Movies.API.Controllers;
 public class UserController {
     private readonly IUserAppService UserAppService;
 
-    public UserController() {
-        UserAppService = new UserAppService();
+    public UserController(IUserAppService userAppService) {
+        UserAppService = userAppService;
     }
 
     [HttpGet()]
