@@ -23,10 +23,7 @@ public class DataContext : DbContext
         });
     }
 
-    //protected override void OnModelCreating(ModelBuilder modelBuilder) {
-    //    base.OnModelCreating(modelBuilder);
-    //}
-
     public DbSet<Users> Users { get; set; }
+    public DbSet<Movie> Movie { get; set; }
 }
 
