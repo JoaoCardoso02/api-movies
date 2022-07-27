@@ -36,5 +36,22 @@ public class MovieService : IMovieService
 
         return movie;
     }
+
+    public Movie Update(long id, Movie movie) {
+        var movieRepository = Repository.Movie;
+
+        var movieSaved = GetOne(id);
+
+        movieSaved.Name = movie.Name ?? movieSaved.Name;
+        movieSaved.Picture = movie.Picture ?? movieSaved.Picture;
+        movieSaved.Rating = movie.Rating == uint.MinValue ? movieSaved.Rating : movie.Rating;
+        movieSaved.ReleaseDate = movie.ReleaseDate == DateTime.MinValue ? movieSaved.ReleaseDate : movie.ReleaseDate;
+        movieSaved.Synopsis = movie.Synopsis ?? movieSaved.Synopsis;
+
+        movieRepository.Update(movie);
+        Repository.SaveChanges();
+
+        return movie;
+    }
 }
 

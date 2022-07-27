@@ -7,5 +7,6 @@ public interface IMovieService
     List<Movie> GetAll();
     Movie GetOne(long id);
     Movie Create(Movie movie);
+    Movie Update(long id, Movie movie);
 }
 
