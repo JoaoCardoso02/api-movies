@@ -27,5 +27,14 @@ public class MovieService : IMovieService
 
         return movie;
     }
+
+    public Movie Create(Movie movie) {
+        var movieRepository = Repository.Movie;
+
+        movieRepository.Add(movie);
+        Repository.SaveChanges();
+
+        return movie;
+    }
 }
 
