@@ -19,5 +19,13 @@ public class MovieService : IMovieService
 
         return movies;
     }
+
+    public Movie GetOne(long id) {
+        var movieRepository = Repository.Movie;
+
+        var movie = movieRepository.Where(movie => movie.Id == id).First();
+
+        return movie;
+    }
 }
 
