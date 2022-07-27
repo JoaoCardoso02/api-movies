@@ -53,5 +53,20 @@ public class MovieService : IMovieService
 
         return movie;
     }
+
+    public bool Delete(long id) {
+        try {
+            var movieRepository = Repository.Movie;
+
+            var movie = GetOne(id);
+
+            movieRepository.Remove(movie);
+            Repository.SaveChanges();
+
+            return true;
+        } catch {
+            return false;
+        }
+    }
 }
 

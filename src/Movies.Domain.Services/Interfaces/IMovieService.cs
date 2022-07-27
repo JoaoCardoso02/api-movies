@@ -8,5 +8,6 @@ public interface IMovieService
     Movie GetOne(long id);
     Movie Create(Movie movie);
     Movie Update(long id, Movie movie);
+    bool Delete(long id);
 }
 
