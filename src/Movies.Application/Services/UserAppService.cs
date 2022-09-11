@@ -31,7 +31,6 @@ public class UserAppService : IUserAppService
                 Id = (long)user.Id,
                 Name = user.Name,
                 Email = user.Email,
-                Password = user.Password,
                 BirthDate = user.BirthDate,
             });
         });
@@ -50,10 +49,8 @@ public class UserAppService : IUserAppService
             Id = (long)user.Id,
             Name = user.Name,
             Email = user.Email,
-            Password = user.Password,
             BirthDate = user.BirthDate,
         };
-
     }
 
     public async Task<CreateUserResult> Create(CreateUserRequest user) {
@@ -80,7 +77,6 @@ public class UserAppService : IUserAppService
             Id = (long)userCreated.Id,
             Name = userCreated.Name,
             Email = userCreated.Email,
-            Password = userCreated.Password,
             BirthDate = userCreated.BirthDate,
         };
     }
@@ -101,7 +97,6 @@ public class UserAppService : IUserAppService
             Id = (long)userCreated.Id,
             Name = userCreated.Name,
             Email = userCreated.Email,
-            Password = userCreated.Password,
             BirthDate = userCreated.BirthDate,
         };
     }
