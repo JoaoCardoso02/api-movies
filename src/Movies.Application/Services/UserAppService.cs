@@ -27,12 +27,14 @@ public class UserAppService : IUserAppService
         List<GetAllUserResult> result = new List<GetAllUserResult>();
 
         users.ForEach(user => {
-            result.Add(new GetAllUserResult {
-                Id = (long)user.Id,
-                Name = user.Name,
-                Email = user.Email,
-                BirthDate = user.BirthDate,
-            });
+            if (user != null && user.Id != null) {
+                result.Add(new GetAllUserResult {
+                    Id = (long)user.Id,
+                    Name = user.Name,
+                    Email = user.Email,
+                    BirthDate = user.BirthDate,
+                });
+            }
         });
 
         return result;
@@ -41,8 +43,8 @@ public class UserAppService : IUserAppService
     public async Task<GetOneUserResult> GetById(long id) {
         var user = await UserService.GetById(id);
 
-        if (user.Id == null) {
-            throw new Exception("User does not return Id");
+        if (user == null || user.Id == null) {
+            throw new Exception("User does not exist");
         }
 
         return new GetOneUserResult {
@@ -69,8 +71,8 @@ public class UserAppService : IUserAppService
             user.BirthDate
         ));
 
-        if (userCreated.Id == null) {
-            throw new Exception("User does not return Id");
+        if (userCreated == null || userCreated.Id == null) {
+            throw new Exception("User does not created");
         }
 
         return new CreateUserResult {
@@ -82,22 +84,22 @@ public class UserAppService : IUserAppService
     }
 
     public async Task<UpdateUserResult> Update(long id, UpdateUserRequest user) {
-        var userCreated = await UserService.Update(id, new Users(
+        var userUpdated = await UserService.Update(id, new Users(
             user.Name,
             user.Email,
             user.Password,
             user.BirthDate
         ));
 
-        if (userCreated.Id == null) {
-            throw new Exception("User does not return Id");
+        if (userUpdated == null || userUpdated.Id == null) {
+            throw new Exception("User does not updated");
         }
 
         return new UpdateUserResult {
-            Id = (long)userCreated.Id,
-            Name = userCreated.Name,
-            Email = userCreated.Email,
-            BirthDate = userCreated.BirthDate,
+            Id = (long)userUpdated.Id,
+            Name = userUpdated.Name,
+            Email = userUpdated.Email,
+            BirthDate = userUpdated.BirthDate,
         };
     }
 
