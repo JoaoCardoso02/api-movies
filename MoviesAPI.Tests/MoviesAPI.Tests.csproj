@@ -16,4 +16,13 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Domain\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\Movies.Domain.Models\Movies.Domain.Models.csproj" />
+  </ItemGroup>
 </Project>
