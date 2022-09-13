@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Application", "src\M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Infrastructure.Cryptography", "src\Movies.Infrastructure.Cryptography\Movies.Infrastructure.Cryptography.csproj", "{3D7941E8-FD2B-467A-AD5B-CFA02CACEE8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesAPI.Tests", "MoviesAPI.Tests\MoviesAPI.Tests.csproj", "{A9D4BB77-4BC4-4D0C-879C-87BDD0A9808D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{3D7941E8-FD2B-467A-AD5B-CFA02CACEE8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D7941E8-FD2B-467A-AD5B-CFA02CACEE8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D7941E8-FD2B-467A-AD5B-CFA02CACEE8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9D4BB77-4BC4-4D0C-879C-87BDD0A9808D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D4BB77-4BC4-4D0C-879C-87BDD0A9808D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D4BB77-4BC4-4D0C-879C-87BDD0A9808D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D4BB77-4BC4-4D0C-879C-87BDD0A9808D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{39231CA2-276F-44C7-86AE-FF01A0DFD854} = {994AF305-6ACA-4663-B96F-B29D476CCF65}
