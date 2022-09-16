@@ -1,5 +1,4 @@
-﻿using System.Xml.Linq;
-using Movies.Domain.Models;
+﻿using Movies.Domain.Models;
 namespace MoviesAPI.Tests;
 
 public class MovieTest {

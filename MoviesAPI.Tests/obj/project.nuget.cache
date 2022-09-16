@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4Vdg96GQCtcMhEoLGG32h3nC/FmVF332t2Bu4+XqvIdNI6pDllsK6Dta3WSSBbh5oyFJ3JGe5Uej3lYJkhx24w==",
+  "dgSpecHash": "tCN1YI6rlrCoOezzmmh/WhkiBvJgLdRmbwFlsaERrPHV5iI+RYd0jFY8y8z5r1hLYVFX6UhYNOBSh2ds2kpNUg==",
   "success": true,
   "projectFilePath": "/Users/joao/Projects/api-movies/MoviesAPI.Tests/MoviesAPI.Tests.csproj",
   "expectedPackageFiles": [
