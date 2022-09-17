@@ -1,5 +1,4 @@
 ﻿using Movies.Infrastructure.Data;
-using Moq;
 using Microsoft.EntityFrameworkCore;
 
 namespace MoviesAPI.Tests.Infrastructure;

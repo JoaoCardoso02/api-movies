@@ -22,11 +22,13 @@
     <None Remove="Moq" />
     <None Remove="Infrastructure\" />
     <None Remove="Infrastructure\Data\" />
+    <None Remove="Infrastructure\Cryptography\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Infrastructure\Data\" />
+    <Folder Include="Infrastructure\Cryptography\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\Movies.Domain.Models\Movies.Domain.Models.csproj" />
