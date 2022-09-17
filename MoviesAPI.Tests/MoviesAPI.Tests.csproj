@@ -14,15 +14,27 @@
     <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
     <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
+    <PackageReference Include="Moq" Version="4.18.2" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Domain\" />
+    <None Remove="Moq" />
+    <None Remove="Infrastructure\" />
+    <None Remove="Infrastructure\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Infrastructure\Data\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\Movies.Domain.Models\Movies.Domain.Models.csproj" />
+    <ProjectReference Include="..\src\Movies.Domain.Services\Movies.Domain.Services.csproj" />
+    <ProjectReference Include="..\src\Movies.Infrastructure.Cryptography\Movies.Infrastructure.Cryptography.csproj" />
+    <ProjectReference Include="..\src\Movies.Infrastructure.Data\Movies.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\src\Movies.Application\Movies.Application.csproj" />
+    <ProjectReference Include="..\src\Movies.Application.Models\Movies.Application.Models.csproj" />
+    <ProjectReference Include="..\src\Movies.API\Movies.API.csproj" />
   </ItemGroup>
 </Project>
