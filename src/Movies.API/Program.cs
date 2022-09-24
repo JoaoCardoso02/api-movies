@@ -30,8 +30,13 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<DataContext, DataContext>();
 builder.Services.AddScoped<ICryptography, BcryptAdapter>();
+
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserAppService, UserAppService>();
+
+builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IMovieAppService, MovieAppService>();
+
 
 var app = builder.Build();
 
