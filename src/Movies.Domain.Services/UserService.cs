@@ -12,7 +12,7 @@ public class UserService : IUserService
         Repository = repository;
     }
 
-    public async Task<List<Users>> GetAll() {
+    public List<Users> GetAll() {
         var userRepository = Repository.Users;
 
         var users = userRepository.ToList();

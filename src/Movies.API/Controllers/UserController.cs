@@ -18,8 +18,8 @@ public class UserController {
 
     [HttpGet()]
     [Consumes(MediaTypeNames.Application.Json)]
-    public async Task<List<GetAllUserResult>> GetAllUser() {
-        return await UserAppService.GetAll();
+    public List<GetAllUserResult> GetAllUser() {
+        return UserAppService.GetAll();
     }
 
     [HttpGet("{id}")]

@@ -21,8 +21,8 @@ public class UserAppService : IUserAppService
         Cryptography = cryptography;
     }
 
-    public async Task<List<GetAllUserResult>> GetAll() {
-        var users = await UserService.GetAll();
+    public List<GetAllUserResult> GetAll() {
+        var users = UserService.GetAll();
 
         List<GetAllUserResult> result = new List<GetAllUserResult>();
 
